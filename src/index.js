@@ -22,7 +22,7 @@ app.use(express.json());
 app.post("/results", (req, res) => {
   const { answers } = req.body;
 
-  if (!Array.isArray(answers) || answers.length !== 4) {
+  if (!Array.isArray(answers) || answers.length !== 93) {
     return res.status(400).send("Invalid answers array");
   }
 
