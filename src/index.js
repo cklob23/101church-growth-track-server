@@ -8,7 +8,7 @@ const router = express.Router();
 //import sendRoute from "./routes/send.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -30,5 +30,5 @@ app.post("/results", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running...`);
+  console.log(`Server is running on port ${PORT}...`);
 });
