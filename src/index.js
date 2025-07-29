@@ -13,6 +13,7 @@ const PORT = 4000;
 app.use(
   cors({
     origin: "https://one01church-growth-track.onrender.com",
+    methods: ["POST", "GET"]
   })
 );
 app.use(bodyParser.json());
