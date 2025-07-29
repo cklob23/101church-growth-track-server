@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import { scoreDISC } from "./utils/scoreDISC.js";
 import { scoreGifts } from "./utils/scoreGifts.js";
 import { buildResultHTML } from "./templates/resultTemplate.js";
-import nodemailer from "nodemailer";
 const router = express.Router();
 //import sendRoute from "./routes/send.js";
 
@@ -24,12 +23,12 @@ app.post("/results", (req, res) => {
 
   const discResult = scoreDISC(answers);
   const giftsResult = scoreGifts(answers);
-  console.log(giftsResult);
-  console.log(discResult);
+  //console.log(giftsResult);
+  //console.log(discResult);
   const html = buildResultHTML({ discResult, giftsResult });
   res.send(html);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running...`);
 });
