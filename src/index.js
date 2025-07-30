@@ -28,12 +28,12 @@ app.post("/results", (req, res) => {
 
   const discResult = scoreDISC(answers);
   const giftsResult = scoreGifts(answers);
-  console.log(giftsResult);
+  //console.log(giftsResult);
   //console.log(discResult);
   const html = buildResultHTML({ discResult, giftsResult });
   res.send(html);
 });
 
 app.listen(PORT, () => {
-  //console.log(`Server is running on port ${PORT}...`);
+  console.log(`Server is running on port ${PORT}...`);
 });
