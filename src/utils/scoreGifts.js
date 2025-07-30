@@ -7,7 +7,7 @@ export function scoreGifts(answers) {
   const results = [];
 
   // We assume answers is an array of at least 72 elements (3 x 24)
-  for (let i = 0; i < 24; i++) {
+  for (let i = 20; i < 94; i++) {
     const val1 = parseInt(answers[i], 10); // column 1 (Q1–24)
     const val2 = parseInt(answers[i + 24], 10); // column 2 (Q25–48)
     const val3 = parseInt(answers[i + 48], 10); // column 3 (Q49–72)
@@ -76,11 +76,11 @@ export function scoreGifts(answers) {
       Missionary: `The missionary gift is the divine strength or ability to reach others outside
   of your culture and nationality, while in most cases living in that culture or
   nation. Acts 8:4, 13:2-3, 22:21; Romans 10:15`,
-      Musicworship: `Music/Worship The gift of music/worship is the divine strength or ability to
+      "Music/Worship": `Music/Worship The gift of music/worship is the divine strength or ability to
   sing, dance, or play an instrument primarily for the purpose of helping others
   worship God. Deuteronomy 31:22; 1 Samuel 16:16; 1 Chronicles 16:41-42; 2
   Chronicles 5:12-13, 34:12; Psalm 150`,
-      Pastorshepherd: `The gift of pastor/shepherd is the divine strength or ability to care for the
+      "Pastor/Shepherd": `The gift of pastor/shepherd is the divine strength or ability to care for the
   personal needs of others by nurturing and mending life issues. John 10:1-18;
   Ephesians 4:11-14; 1 Timothy 3:1-7; 1 Peter 5:1-3`,
       Prophecy: `The gift of prophecy is the divine strength or ability to boldly speak and
@@ -93,7 +93,7 @@ export function scoreGifts(answers) {
       Teaching: `The gift of teaching is the divine strength or ability to study and learn from
   the Scriptures primarily to bring understanding and growth to other
   Christians. Acts 18:24-28, 20:20-21; 1 Corinthians 12:28; Ephesians 4:11-14`,
-      Tonguesinterpretation: `The gift of tongues is the divine strength or ability to pray in a heavenly
+      "Tongues & Interpretation": `The gift of tongues is the divine strength or ability to pray in a heavenly
   language to encourage your spirit and to commune with God. The gift of tongues
   is often accompanied by interpretation and should be used appropriately. Acts
   2:1-13; 1 Corinthians 12:10, 14:1-14`,
@@ -104,7 +104,7 @@ export function scoreGifts(answers) {
     results.push({
       code,
       gift: giftName,
-      description: descriptions[giftName.replace("/", "")],
+      description: descriptions[giftName],
       score: total,
     });
   }
