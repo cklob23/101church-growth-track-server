@@ -7,10 +7,10 @@ export function scoreGifts(answers) {
   const results = [];
 
   // We assume answers is an array of at least 72 elements (3 x 24)
-  for (let i = 20; i < 94; i++) {
-    const val1 = parseInt(answers[i], 10); // column 1 (Q1–24)
-    const val2 = parseInt(answers[i + 24], 10); // column 2 (Q25–48)
-    const val3 = parseInt(answers[i + 48], 10); // column 3 (Q49–72)
+  for (let i = 0; i < 24; i++) {
+    const val1 = parseInt(answers[20 + i], 10); // column 1 (Q1–24)
+    const val2 = parseInt(answers[44 + i], 10); // column 2 (Q25–48)
+    const val3 = parseInt(answers[68 + i], 10); // column 3 (Q49–72)
 
     const total =
       (isNaN(val1) ? 0 : val1) +

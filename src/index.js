@@ -28,7 +28,7 @@ app.post("/results", (req, res) => {
 
   const discResult = scoreDISC(answers);
   const giftsResult = scoreGifts(answers);
-  //console.log(giftsResult);
+  console.log(giftsResult);
   //console.log(discResult);
   const html = buildResultHTML({ discResult, giftsResult });
   res.send(html);
