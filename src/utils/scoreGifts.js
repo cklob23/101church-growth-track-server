@@ -27,7 +27,7 @@ export function scoreGifts(answers) {
   churches and ministries through planting, overseeing, and training. Acts
   15:22-35; 1 Corinthians 12:28; 2 Corinthians 12:12; Galatians 2:7-10;
   Ephesians 4:11-14`,
-      Craftmanship: `The gift of craftsmanship is the divine strength or ability to plan, build,
+      Craftsmanship: `The gift of craftsmanship is the divine strength or ability to plan, build,
   and work with your hands in construction environments to accomplish multiple
   ministry applications. Exodus 30:22, 31:3-11; 2 Chronicles 34:9-13; Acts
   18:2-3`,
