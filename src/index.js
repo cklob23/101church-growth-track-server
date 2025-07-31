@@ -5,7 +5,6 @@ import { scoreDISC } from "./utils/scoreDISC.js";
 import { scoreGifts } from "./utils/scoreGifts.js";
 import { buildResultHTML } from "./templates/resultTemplate.js";
 const router = express.Router();
-//import sendRoute from "./routes/send.js";
 
 const app = express();
 const PORT = 4000;
@@ -18,7 +17,6 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(express.json());
-//app.use("/send", sendRoute);
 app.post("/results", (req, res) => {
   const { answers } = req.body;
 

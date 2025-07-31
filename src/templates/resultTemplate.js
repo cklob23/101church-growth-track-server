@@ -21,9 +21,8 @@ export function buildResultHTML({ discResult, giftsResult }) {
     discResult.summary
   }%0A%0AMy Spiritual Gifts:%0A${giftsResult
     .map((g) => `- ${g.gift}: ${g.description}`)
-    .join("%0A")}%0A%0ASincerely,%0A\${name}\`
+    .join("%0A%0A")}%0A%0AThank you,%0A%0A\${name}\`
             window.location.href = mailtoLink;
-            console.log(name);
         });
     </script>
     <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
