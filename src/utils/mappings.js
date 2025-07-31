@@ -22,6 +22,6 @@ export const giftQuestionMap = {
   T: "Prophecy",
   U: "Service",
   V: "Teaching",
-  W: "Tongues & Interpretation",
+  W: "Tongues and Interpretation",
   X: "Wisdom",
 };

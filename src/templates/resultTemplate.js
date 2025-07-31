@@ -20,7 +20,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
   })%0A%0ASummary: ${
     discResult.summary
   }%0A%0AMy Spiritual Gifts:%0A${giftsResult
-    .map((g) => `- ${g.gift}: ${encodeURIComponent(g.description)}`)
+    .map((g) => `- ${g.gift}: ${g.description}`)
     .join("%0A")}%0A%0ASincerely,%0A\${name}\`
             window.location.href = mailtoLink;
             console.log(name);

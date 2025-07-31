@@ -8,9 +8,9 @@ export function scoreGifts(answers) {
 
   // We assume answers is an array of at least 72 elements (3 x 24)
   for (let i = 0; i < 24; i++) {
-    const val1 = parseInt(answers[20 + i], 10); // column 1 (Q1–24)
-    const val2 = parseInt(answers[44 + i], 10); // column 2 (Q25–48)
-    const val3 = parseInt(answers[68 + i], 10); // column 3 (Q49–72)
+    const val1 = parseInt(answers[21 + i], 10); // column 1 (Q1–24)
+    const val2 = parseInt(answers[45 + i], 10); // column 2 (Q25–48)
+    const val3 = parseInt(answers[69 + i], 10); // column 3 (Q49–72)
 
     const total =
       (isNaN(val1) ? 0 : val1) +
@@ -93,7 +93,7 @@ export function scoreGifts(answers) {
       Teaching: `The gift of teaching is the divine strength or ability to study and learn from
   the Scriptures primarily to bring understanding and growth to other
   Christians. Acts 18:24-28, 20:20-21; 1 Corinthians 12:28; Ephesians 4:11-14`,
-      "Tongues & Interpretation": `The gift of tongues is the divine strength or ability to pray in a heavenly
+      "Tongues and Interpretation": `The gift of tongues is the divine strength or ability to pray in a heavenly
   language to encourage your spirit and to commune with God. The gift of tongues
   is often accompanied by interpretation and should be used appropriately. Acts
   2:1-13; 1 Corinthians 12:10, 14:1-14`,
@@ -113,5 +113,5 @@ export function scoreGifts(answers) {
   results.sort((a, b) => b.score - a.score);
 
   // Return top 5 gifts
-  return results.slice(0, 5);
+  return results.slice(0, 7);
 }
