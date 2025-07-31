@@ -20,7 +20,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
   })%0A%0ASummary: ${
     discResult.summary
   }%0A%0AMy Spiritual Gifts:%0A${giftsResult
-    .map((g) => `- ${g.gift}: ${g.description}`)
+    .map((g) => `- ${g.gift} Score: ${g.score}: ${g.description}`)
     .join("%0A%0A")}%0A%0AThank you,%0A%0A\${name}\`
             window.location.href = mailtoLink;
         });
@@ -48,7 +48,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
         <p>${discResult.betterYourself}</p>
         <h2>Your spiritual gifts:</h2>
         ${giftsResult
-          .map((g) => `<h3>${g.gift}</h3><p>${g.description}</p>`)
+          .map(
+            (g) => `<h3>${g.gift} Score: ${g.score}</h3><p>${g.description}</p>`
+          )
           .join("<hr>")}
     </body>
 </html>
