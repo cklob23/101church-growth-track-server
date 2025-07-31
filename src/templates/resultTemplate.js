@@ -1,7 +1,4 @@
 export function buildResultHTML({ discResult, giftsResult }) {
-  //     %0A%0ABetter Yourself Tips: ${
-  //     discResult.betterYourself
-  //   }
   return `
 <html>
     <head><title>Your Results</title></head>
