@@ -36,7 +36,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
         <h2>Your personality type is <strong>'${discResult.code}'</strong></h2>
         <hr>
         <p><b>${discResult.description}</b><br><br></p>
-        <p>${discResult.summary}.</p> ${
+        <p>Summary: ${discResult.summary}.</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
       ? `<p>Biblical Examples: ${discResult.biblicalExamples}</p>`
       : ""
