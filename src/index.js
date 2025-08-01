@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import { scoreDISC } from "./utils/scoreDISC.js";
 import { scoreGifts } from "./utils/scoreGifts.js";
 import { buildResultHTML } from "./templates/resultTemplate.js";
+import { sendEmail } from "./utils/sendEmail.js";
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ const PORT = 4000;
 app.use(
   cors({
     origin: "https://one01church-growth-track.onrender.com",
-    methods: ["POST", "GET"]
+    methods: ["POST", "GET"],
   })
 );
 app.use(bodyParser.json());
