@@ -113,5 +113,5 @@ export function scoreGifts(answers) {
   results.sort((a, b) => b.score - a.score);
 
   // Return top 5 gifts
-  return results.slice(0, 7);
+  return results.slice(0, 5);
 }
