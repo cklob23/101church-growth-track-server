@@ -33,6 +33,23 @@ app.post("/results", (req, res) => {
   res.send(html);
 });
 
+app.post("/send", async (req, res) => {
+  const { name, email, html } = req.body;
+
+  if (!name || !email || !html) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  try {
+    const subject = `My DISC & Gifts Assessment Results`;
+    await sendEmail(email, subject, html);
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to send email" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);
 });

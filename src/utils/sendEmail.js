@@ -8,37 +8,37 @@ import nodemailer from "nodemailer";
  * @param {string} htmlBody - The HTML content of the email.
  */
 
-export async function sendEmail(htmlBody) {
+export async function sendEmail(email, subject, htmlBody) {
+  const transporter = nodemailer.createTransport({
+    host: "imap.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "101churchgrowthtrack@gmail.com",
+      pass: "a3jxc7klrvizxu$",
+    },
+    logger: true,
+    debug: true,
+  });
+
+  const info = {
+    from: '"101 Church Growth Track" <101churchgrowthtrack@gmail.com>',
+    to: email,
+    subject: subject,
+    html: htmlBody,
+    headers: { "x-cloudmta-class": "standard" },
+  };
   try {
-    const transporter = nodemailer.createTransport({
-      host: "imap.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: "101churchgrowthtrack@gmail.com",
-        pass: "a3jxc7klrvizxu$",
-      },
-      logger: true,
-      debug: true,
-    });
-
-    const info = {
-      from: '"101 Church Growth Track" <101churchgrowthtrack@gmail.com>',
-      to: "klobe.caleb23@gmail.com",
-      subject: "My DISC and Spiritual Gifts Results",
-      html: htmlBody,
-      headers: { "x-cloudmta-class": "standard" },
-    };
-
-    transporter.sendMail(info, function (err, data) {
+    const mailInfo = await transporter.sendMail(info, function (err, data) {
       if (err) {
         console.log(err);
       } else {
-        console.log("Email sent successfully");
+        console.log(`Email sent successfully: ${mailInfo.messageId}`);
+        return mailInfo;
       }
     });
   } catch (err) {
-    console.log(err);
-    return ["Something went wrong", err];
+    console.log("Error sending email:", err);
+    throw err;
   }
 }
