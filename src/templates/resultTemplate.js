@@ -32,7 +32,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     )
                     .join("")}
                 </ul>
-                <p>Shared by: ${name}</p>
+                <p>Shared by: \`name\`</p>
             \`;
 
               fetch('/send', {
