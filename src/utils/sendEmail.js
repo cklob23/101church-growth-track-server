@@ -33,7 +33,7 @@ export async function sendEmail(email, subject, htmlBody) {
       if (err) {
         console.log(err);
       } else {
-        console.log(`Email sent successfully: ${mailInfo}`);
+        console.log(`Email sent successfully.`);
         return mailInfo;
       }
     });
