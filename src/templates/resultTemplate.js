@@ -22,7 +22,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
                 <p><strong>Personality Type:</strong> ${discResult.code} - ${
     discResult.breakdown[0].type
   }</p>
-                <p>${discResult.summary}</p>
+                <p>Summary: ${discResult.summary}</p>
                 <h3>Spiritual Gifts:</h3>
                 <ul>
                   ${giftsResult
@@ -32,10 +32,10 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     )
                     .join("")}
                 </ul>
-                <p>Shared by: \`name\`</p>
+                <p>Shared by: name</p>
             \`;
 
-              fetch('/send', {
+              fetch('https://one01church-growth-track-server.onrender.com/send', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
