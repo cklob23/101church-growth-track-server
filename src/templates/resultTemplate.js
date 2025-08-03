@@ -1,5 +1,13 @@
 export function buildResultHTML({ discResult, giftsResult }) {
   return `
+    <script type="text/javascript">
+      document.addEventlistener('DOMContentLoaded', () => {
+        const btn = document.getElementById("shareBtn");
+        btn.addEventListener("click", () => {
+          console.log("Button clicked!);
+        });
+      });
+    </script>
     <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
         <div class="row">
             <div class="col-md-3 well">
@@ -31,11 +39,6 @@ export function buildResultHTML({ discResult, giftsResult }) {
           )
           .join("<hr>")}
     </body>
-    <script type="text/javascript">
-      document.getElementById("shareBtn").addEventListener("click", () => {
-        console.log("Button clicked!);
-      });
-    </script>
 </html>
 `;
 }
