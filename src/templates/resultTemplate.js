@@ -34,26 +34,16 @@ export function buildResultHTML({ discResult, giftsResult }) {
                 </ul>
                 <p>Shared by: name</p>
             \`;
-
-              fetch('https://one01church-growth-track-server.onrender.com/send', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, html })
-              })
-              .then(res => res.json())
-              .then(data => {
-                if (data.success) {
-                  alert('You've shared your results with 101 Church!');
-                } else {
-                  alert('Error sending email: ' + data.error);
-                }
-              })
-              .catch(err => {
-                console.error('Fetch error:', err);
-                alert('An error occurred while sending the email.');
+            $.ajax({
+                type: "POST",
+                url: "https://one01church-growth-track-server.onrender.com/send",
+                contentType: "application/json",
+                data: JSON.stringify({ name, email, html }),
+                cache: false,
+              }).done(function (res) {
+                console.log(res);
               });
+    
             });
         });
     </script>
