@@ -1,10 +1,5 @@
 export function buildResultHTML({ discResult, giftsResult }) {
   return `
-    <script
-      type="text/javascript"
-      charset="utf-8"
-      src="./shareButton.js"
-    ></script>
     <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
         <div class="row">
             <div class="col-md-3 well">
