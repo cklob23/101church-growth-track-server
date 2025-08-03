@@ -45,7 +45,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               .then(res => res.json())
               .then(data => {
                 if (data.success) {
-                  alert('You've shared your results with 101 Church!');
+                  alert('You\'ve shared your results with 101 Church!');
                 } else {
                   alert('Error sending email: ' + data.error);
                 }
