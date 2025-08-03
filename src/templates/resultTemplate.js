@@ -63,6 +63,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <h4 class="text-muted">Share your results with<br>101 Church</h4>
                     <label style="color:rgb(105, 104, 104);" for="name" required>Name</label>
                     <input class="form-control" id="nameInput" type="name" placeholder="Type your name">
+                    <label style="color:rgb(105, 104, 104);" for="email" required>Email</label>
                     <input class="form-control" id="emailInput" type="name" placeholder="Type your email">
                     <button class="btn btn-success btn-sm" id="shareBtn" type="button">
                     <i class="fa fa-share" aria-hidden="true"></i> Share</button>
