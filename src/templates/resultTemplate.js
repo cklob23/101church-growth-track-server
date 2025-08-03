@@ -1,6 +1,5 @@
 export function buildResultHTML({ discResult, giftsResult }) {
   return `
-<html>
     <head><title>Your Results</title></head>
     <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", () => {
