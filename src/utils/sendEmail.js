@@ -15,7 +15,7 @@ export async function sendEmail(email, subject, htmlBody) {
     secure: true,
     auth: {
       user: "101churchgrowthtrack@gmail.com",
-      pass: "a3jxc7klrvizxu$",
+      pass: "nysb lvlm audm ojdz",
     },
     logger: true,
     debug: true,
