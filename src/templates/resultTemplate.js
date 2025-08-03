@@ -4,6 +4,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
     <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("shareBtn").addEventListener("click", () => {
+    console.log("Button clicked!);
     const name = document.getElementById("nameInput").value;
     const email = document.getElementById("emailInput").value;
     if (!name) {
