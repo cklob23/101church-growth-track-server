@@ -13,7 +13,10 @@ export function buildResultHTML({ discResult, giftsResult }) {
     discResult.breakdown[0].type
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
-        <p><b>${discResult.description}</b><br><br></p>
+        <p><b>${discResult.description.replace(
+          "You are",
+          "I am"
+        )}</b><br><br></p>
         <p><strong>Summary:</strong> ${discResult.summary}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
       ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
@@ -27,10 +30,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
           )
           .join("<hr>")}
           <br/>
-          Thank you,
+          <p>Thank you,</p>
           <br/>
-          <br/>
-          \${name}
+          <p>\${name}</p>
             \`
             if (!name) {
               alert("Please enter your name before sharing.");
