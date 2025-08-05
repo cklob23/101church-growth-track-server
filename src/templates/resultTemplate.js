@@ -12,11 +12,17 @@ export function buildResultHTML({ discResult, giftsResult }) {
     discResult.breakdown[0].type
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
-        <p><b>${discResult.description.replace(
-          "You are",
-          "I am"
-        )}</b><br><br></p>
-        <p><strong>Summary:</strong> ${discResult.summary}</p> ${
+        <p><b>${discResult.description.replace(/\b(we|are)\b/gi, (match) => {
+          if (match.toLowerCase() === "we") return "I";
+          if (match.toLowerCase() === "are") return "am";
+        })}</b><br><br></p>
+        <p><strong>Summary:</strong> ${discResult.summary.replace(
+          /\b(we|are)\b/gi,
+          (match) => {
+            if (match.toLowerCase() === "we") return "I";
+            if (match.toLowerCase() === "are") return "am";
+          }
+        )}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
       ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
