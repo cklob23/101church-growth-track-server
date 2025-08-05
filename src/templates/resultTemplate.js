@@ -21,7 +21,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               data: JSON.stringify({
                 name: name,
                 email: email,
-                html: $("#results"),
+                html: $("#results").html(),
               }),
               cache: false,
             }).done(function () {
