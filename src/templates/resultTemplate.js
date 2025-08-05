@@ -31,7 +31,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
           Thank you,
           <br/>
           <br/>
-          \`name\`
+          name
             \`
             if (!name) {
               alert("Please enter your name before sharing.");
