@@ -13,13 +13,16 @@ export function buildResultHTML({ discResult, giftsResult }) {
     discResult.breakdown[0].type
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
-        <p><b>${discResult.description.replace(/\b(we|are)\b/gi, (match) => {
-          if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
-            return "I";
-          if (match.toLowerCase() === "are") return "am";
-        })}</b><br><br></p>
+        <p><b>${discResult.description.replace(
+          /\b(we|are|you)\b/gi,
+          (match) => {
+            if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
+              return "I";
+            if (match.toLowerCase() === "are") return "am";
+          }
+        )}</b><br><br></p>
         <p><strong>Summary:</strong> ${discResult.summary.replace(
-          /\b(we|are)\b/gi,
+          /\b(we|are|you)\b/gi,
           (match) => {
             if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
               return "I";
