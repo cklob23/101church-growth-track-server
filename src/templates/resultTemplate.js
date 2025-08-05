@@ -14,9 +14,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
         <p><b>${discResult.description}</b><br><br></p>
-        <p>Summary: ${discResult.summary}</p> ${
+        <p><strong>Summary:</strong> ${discResult.summary}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
-      ? `<p>Biblical Examples: ${discResult.biblicalExamples}</p>`
+      ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
   }
         <br/>
@@ -76,9 +76,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
         <h2>Your personality type is <strong>'${discResult.code}'</strong></h2>
         <hr>
         <p><b>${discResult.description}</b><br><br></p>
-        <p>Summary: ${discResult.summary}</p> ${
+        <p><strong>Summary:</strong> ${discResult.summary}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
-      ? `<p>Biblical Examples: ${discResult.biblicalExamples}</p>`
+      ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
   }
         <h4>Ways You Can Better Yourself</h4>
