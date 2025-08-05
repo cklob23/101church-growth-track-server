@@ -23,7 +23,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
         ${giftsResult
           .map(
             (g) =>
-              `<h3>${g.gift}<br>Score: ${g.score}</h3><p>${g.description}</p>`
+              `<h3>${g.gift}</h3><br><h4>Score: ${g.score}</h4><p>${g.description}</p>`
           )
           .join("<hr>")}
           <br/>
@@ -85,7 +85,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
         ${giftsResult
           .map(
             (g) =>
-              `<h3>${g.gift}<br>Score: ${g.score}</h3><br><p>${g.description}</p>`
+              `<h3>${g.gift}</h3><br><h4>Score: ${g.score}</h4><p>${g.description}</p>`
           )
           .join("<hr>")}
     </body>
