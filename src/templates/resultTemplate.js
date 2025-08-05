@@ -9,10 +9,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
             var html = \`
             <h1>My Simple DISCovery results</h1>
             <br/>
-            <br/>
-             <h2>My personality type is <strong>'${
-               discResult.code
-             }'</strong></h2>
+             <h2>My personality type is <strong>'${discResult.code}' (${
+    discResult.breakdown[0].type
+  }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
         <p><b>${discResult.description}</b><br><br></p>
         <p>Summary: ${discResult.summary}</p> ${
@@ -20,8 +19,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
       ? `<p>Biblical Examples: ${discResult.biblicalExamples}</p>`
       : ""
   }
-        <h4>Ways You Can Better Yourself</h4>
-        <p>${discResult.betterYourself}</p>
+        <br/>
         <h2>My spiritual gifts:</h2>
         ${giftsResult
           .map(
