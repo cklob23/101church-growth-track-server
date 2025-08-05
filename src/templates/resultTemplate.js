@@ -6,6 +6,33 @@ export function buildResultHTML({ discResult, giftsResult }) {
             console.log("Button clicked!");
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
+            var html = \`
+             <h2>My personality type is <strong>'${
+               discResult.code
+             }'</strong></h2>
+        <hr>
+        <p><b>${discResult.description}</b><br><br></p>
+        <p>Summary: ${discResult.summary}</p> ${
+    discResult.biblicalExamples && discResult.biblicalExamples.length > 0
+      ? `<p>Biblical Examples: ${discResult.biblicalExamples}</p>`
+      : ""
+  }
+        <h4>Ways You Can Better Yourself</h4>
+        <p>${discResult.betterYourself}</p>
+        <h2>My spiritual gifts:</h2>
+        ${giftsResult
+          .map(
+            (g) =>
+              `<h3>${g.gift}<br>Score: ${g.score}</h3><br><p>${g.description}</p>`
+          )
+          .join("<hr>")}
+          <br/>
+          <br/>
+          Thank you,
+          <br/>
+          <br/>
+          \`name\`
+            \`
             if (!name) {
               alert("Please enter your name before sharing.");
               return;
@@ -21,7 +48,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               data: JSON.stringify({
                 name: name,
                 email: email,
-                html: String($("#results").html()).substring("<h2>").replace("Your", "My"),
+                html: html,
               }),
               cache: false,
             }).done(function () {
