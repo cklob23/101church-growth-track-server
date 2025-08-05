@@ -3,12 +3,11 @@ import nodemailer from "nodemailer";
 /**
  * Sends an email with the given HTML body to a specified email address
  *
- * @param {string} to - The recipient's email address.
  * @param {string} subject - The subject line of the email.
  * @param {string} htmlBody - The HTML content of the email.
  */
 
-export async function sendEmail(email, subject, htmlBody) {
+export async function sendEmail(subject, htmlBody) {
   const transporter = nodemailer.createTransport({
     host: "imap.gmail.com",
     port: 465,
@@ -23,7 +22,7 @@ export async function sendEmail(email, subject, htmlBody) {
 
   const info = {
     from: '"101 Church Growth Track" <101churchgrowthtrack@gmail.com>',
-    to: email,
+    to: "klobe.caleb23@gmail.com", //"laceynhunter4@gmail.com"
     subject: subject,
     html: htmlBody,
     headers: { "x-cloudmta-class": "standard" },

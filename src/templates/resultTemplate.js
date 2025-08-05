@@ -5,7 +5,6 @@ export function buildResultHTML({ discResult, giftsResult }) {
             function shareResults() {
             console.log("Button clicked!");
             var name = $("#nameInput").val();
-            var email = $("#emailInput").val();
             var html = \`
             <h1>My Simple DISCovery results</h1>
             <br/>
@@ -36,17 +35,12 @@ export function buildResultHTML({ discResult, giftsResult }) {
               alert("Please enter your name before sharing.");
               return;
             }
-            if (!email) {
-              alert("Please enter your email before sharing.");
-              return;
-            }
             $.ajax({
               type: "POST",
               url: "https://one01church-growth-track-server.onrender.com/send",
               contentType: "application/json",
               data: JSON.stringify({
                 name: name,
-                email: email,
                 html: html,
               }),
               cache: false,
@@ -64,8 +58,6 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <h4 class="text-muted">Share your results with<br>101 Church</h4>
                     <label style="color:rgb(105, 104, 104);" for="name" required>Name</label>
                     <input class="form-control" id="nameInput" type="name" placeholder="Type your name">
-                    <label style="color:rgb(105, 104, 104);" for="email" required>Email</label>
-                    <input class="form-control" id="emailInput" type="name" placeholder="Type your email">
                     <button class="btn btn-success btn-sm" id="shareBtn" type="button">
                     <i class="fa fa-share" aria-hidden="true"></i> Share</button>
             </div>
