@@ -29,9 +29,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               `<h3>${g.gift}</h3><h4>Score: ${g.score}</h4><p>${g.description}</p>`
           )
           .join("<hr>")}
-          <br/>
           <p>Thank you,</p>
-          <br/>
           <p>\${name}</p>
             \`
             if (!name) {
