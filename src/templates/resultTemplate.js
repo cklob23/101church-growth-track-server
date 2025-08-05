@@ -7,6 +7,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
             var html = \`
+            <h1>My Simple DISCovery results</h1>
+            <br/>
+            <br/>
              <h2>My personality type is <strong>'${
                discResult.code
              }'</strong></h2>
