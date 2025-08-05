@@ -5,6 +5,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
             function shareResults() {
             console.log("Button clicked!");
             var name = $("#nameInput").val();
+            var email = $("#emailInput").val();
             var html = \`
             <h1>My Simple DISCovery results</h1>
             <br/>
@@ -13,13 +14,15 @@ export function buildResultHTML({ discResult, giftsResult }) {
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
         <p><b>${discResult.description.replace(/\b(we|are)\b/gi, (match) => {
-          if (match.toLowerCase() === "we") return "I";
+          if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
+            return "I";
           if (match.toLowerCase() === "are") return "am";
         })}</b><br><br></p>
         <p><strong>Summary:</strong> ${discResult.summary.replace(
           /\b(we|are)\b/gi,
           (match) => {
-            if (match.toLowerCase() === "we") return "I";
+            if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
+              return "I";
             if (match.toLowerCase() === "are") return "am";
           }
         )}</p> ${
@@ -36,17 +39,21 @@ export function buildResultHTML({ discResult, giftsResult }) {
           .join("<hr>")}
           <p>Thank you,</p>
           <p>\${name}</p>
+          <p>Email: \${email}</p>
             \`
             if (!name) {
               alert("Please enter your name before sharing.");
               return;
+            }
+            if (!email) {
+            alert("Please enter your email before sharing.");
+            return;
             }
             $.ajax({
               type: "POST",
               url: "https://one01church-growth-track-server.onrender.com/send",
               contentType: "application/json",
               data: JSON.stringify({
-                name: name,
                 html: html,
               }),
               cache: false,
@@ -64,6 +71,8 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <h4 class="text-muted">Share your results with<br>101 Church</h4>
                     <label style="color:rgb(105, 104, 104);" for="name" required>Name</label>
                     <input class="form-control" id="nameInput" type="name" placeholder="Type your name">
+                    <label style="color:rgb(105, 104, 104);" for="email" required>Email</label>
+                    <input class="form-control" id="emailInput" type="email" placeholder="Type your email">
                     <button class="btn btn-success btn-sm" id="shareBtn" type="button">
                     <i class="fa fa-share" aria-hidden="true"></i> Share</button>
             </div>

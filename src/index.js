@@ -35,9 +35,9 @@ app.post("/results", (req, res) => {
 });
 
 app.post("/send", async (req, res) => {
-  const { name, html } = req.body;
+  const { html } = req.body;
 
-  if (!name || !html) {
+  if (!html) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
