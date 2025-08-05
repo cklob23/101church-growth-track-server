@@ -1,11 +1,38 @@
 export function buildResultHTML({ discResult, giftsResult }) {
   return `
-    <script
-    type="text/javascript"
-    charset="utf-8"
-    src="/disc/js/shareButton.js"
-    ></script>
-    <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
+      <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
+      <script>
+            function shareResults() {
+            console.log("Button clicked!");
+            var name = $("#nameInput").val();
+            var email = $("#emailInput").val();
+            if (!name) {
+              alert("Please enter your name before sharing.");
+              return;
+            }
+            if (!email) {
+              alert("Please enter your email before sharing.");
+              return;
+            }
+            $.ajax({
+              type: "POST",
+              url: "https://one01church-growth-track-server.onrender.com/send",
+              contentType: "application/json",
+              data: JSON.stringify({
+                name: name,
+                email: email,
+                html: $("#results"),
+              }),
+              cache: false,
+            }).done(function () {
+              alert("Your results have been shared with 101 Church!")
+            });
+          }
+
+          $("#shareBtn").on("click", function () {
+            shareResults();
+          });
+        </script>
         <div class="row">
             <div class="col-md-3 well">
                     <h4 class="text-muted">Share your results with<br>101 Church</h4>
