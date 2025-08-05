@@ -7,26 +7,25 @@ export function buildResultHTML({ discResult, giftsResult }) {
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
             var html = \`
-            <h1>My Simple DISCovery results</h1>
-            <br/>
+            <p>Hi 101 Church,</p>
+            <p>Here are my Simple DISCovery results:</p>
              <h2>My personality type is <strong>'${discResult.code}' (${
     discResult.breakdown[0].type
   }/${discResult.breakdown[1].type})</strong></h2>
         <hr>
-        <p><b>${discResult.description.replace(
+        <p><strong>${discResult.description.replace(
           /\b(we|are|you)\b/gi,
           (match) => {
             if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
               return "I";
             if (match.toLowerCase() === "are") return "am";
           }
-        )}</b><br><br></p>
+        )}</strong></p>
+        <br/>
         <p><strong>Summary:</strong> ${discResult.summary.replace(
-          /\b(we|are|you)\b/gi,
+          /\b(We)\b/gi,
           (match) => {
-            if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
-              return "I";
-            if (match.toLowerCase() === "are") return "am";
+            if (match === "We") return `'${discResult.code}'`;
           }
         )}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
