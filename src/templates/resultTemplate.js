@@ -19,15 +19,13 @@ export function buildResultHTML({ discResult, giftsResult }) {
       ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
   }
-        <br/>
         <h2>My spiritual gifts:</h2>
         ${giftsResult
           .map(
             (g) =>
-              `<h3>${g.gift}<br>Score: ${g.score}</h3><br><p>${g.description}</p>`
+              `<h3>${g.gift}<br>Score: ${g.score}</h3><p>${g.description}</p>`
           )
           .join("<hr>")}
-          <br/>
           <br/>
           Thank you,
           <br/>
