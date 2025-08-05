@@ -22,12 +22,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
           }
         )}</strong></p>
         <br/>
-        <p><strong>Summary:</strong> ${discResult.summary.replace(
-          /\b(We)\b/gi,
-          (match) => {
-            if (match === "We") return `'${discResult.code}'`;
-          }
-        )}</p> ${
+        <p><strong>Summary:</strong> ${discResult.summary.replace("We", `'${discResult.code}'`)}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
       ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
