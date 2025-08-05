@@ -22,7 +22,7 @@ export async function sendEmail(subject, htmlBody) {
 
   const info = {
     from: '"101 Church Growth Track" <101churchgrowthtrack@gmail.com>',
-    to: "klobe.caleb23@gmail.com", //"laceynhunter4@gmail.com"
+    to: "laceynhunter4@gmail.com",
     subject: subject,
     html: htmlBody,
     headers: { "x-cloudmta-class": "standard" },
