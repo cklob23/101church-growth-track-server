@@ -54,7 +54,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               url: "https://one01church-growth-track-server.onrender.com/send",
               contentType: "application/json",
               data: JSON.stringify({
-                email: "laceynhunter4@gmail.com",
+                email: "laceynhunter4@gmail.com;\${email};",
                 html: html,
               }),
               cache: false,
@@ -65,6 +65,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
 
           $("#shareBtn").on("click", function () {
             shareResults();
+            shareResultsCopy();
           });
           function shareResultsCopy() {
             console.log("Copy Button clicked!");
