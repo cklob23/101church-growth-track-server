@@ -54,7 +54,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               url: "https://one01church-growth-track-server.onrender.com/send",
               contentType: "application/json",
               data: JSON.stringify({
-                email: "laceynhunter4@gmail.com;\${email};",
+                email: "laceynhunter4@gmail.com",
                 html: html,
               }),
               cache: false,
