@@ -137,11 +137,14 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <input class="form-control" id="nameInput" type="name" placeholder="Type your name">
                     <label style="color:rgb(105, 104, 104);" for="email" required>Email</label>
                     <input class="form-control" id="emailInput" type="email" placeholder="Type your email">
-                    <button class="btn btn-success btn-sm" id="shareBtn" type="button">
-                    <i class="fa fa-share" aria-hidden="true"></i>Share</button>
-                    <br/>
-                    <button class="btn btn-success btn-sm" id="shareCopyBtn" type="button">
-                    <i class="fa fa-share" aria-hidden="true"></i>Send Myself A Copy</button>
+                    <div>
+                      <button class="btn btn-success btn-sm" id="shareBtn" type="button">
+                      <i class="fa fa-share" aria-hidden="true"></i>Share With 101 Church</button>
+                    </div>
+                    <div style="margin-top: 10px;"
+                      <button class="btn btn-success btn-sm" id="shareCopyBtn" type="button">
+                      <i class="fa fa-share" aria-hidden="true"></i>Send Myself A Copy</button>
+                    </div?
             </div>
         </div>
 
