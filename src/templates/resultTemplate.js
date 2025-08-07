@@ -144,7 +144,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <div style="margin-top: 10px;"
                       <button class="btn btn-success btn-sm" id="shareCopyBtn" type="button">
                       <i class="fa fa-share" aria-hidden="true"></i>Send Myself A Copy</button>
-                    </div?
+                    </div?>
             </div>
         </div>
 
