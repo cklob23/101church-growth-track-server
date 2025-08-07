@@ -22,7 +22,7 @@ app.use(express.json());
 app.post("/results", (req, res) => {
   const { answers } = req.body;
 
-  if (!Array.isArray(answers) || answers.length !== 93) {
+  if (!Array.isArray(answers) || answers.length !== 4) {
     return res.status(400).send("Invalid answers array");
   }
 
@@ -35,15 +35,14 @@ app.post("/results", (req, res) => {
 });
 
 app.post("/send", async (req, res) => {
-  const { html } = req.body;
+  const { email, html } = req.body;
 
   if (!html) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
   try {
-    const subject = `My DISC & Gifts Assessment Results`;
-    await sendEmail(subject, html);
+    await sendEmail(email, html);
     res.json({ success: true });
   } catch (err) {
     console.error(err);

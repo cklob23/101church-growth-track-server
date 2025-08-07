@@ -2,7 +2,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
   return `
       <body style="font-family: sans-serif; max-width: 700px; margin: auto;">
       <script>
-            function shareResults() {
+        function shareResults() {
             console.log("Button clicked!");
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
@@ -22,7 +22,10 @@ export function buildResultHTML({ discResult, giftsResult }) {
           }
         )}</strong></p>
         <br/>
-        <p><strong>Summary:</strong> ${discResult.summary.replace("We", `'${discResult.code}'`)}</p> ${
+        <p><strong>Summary:</strong> ${discResult.summary.replace(
+          "We",
+          `'${discResult.code}'`
+        )}</p> ${
     discResult.biblicalExamples && discResult.biblicalExamples.length > 0
       ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
       : ""
@@ -51,6 +54,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               url: "https://one01church-growth-track-server.onrender.com/send",
               contentType: "application/json",
               data: JSON.stringify({
+                email: "laceynhunter4@gmail.com",
                 html: html,
               }),
               cache: false,
@@ -62,6 +66,70 @@ export function buildResultHTML({ discResult, giftsResult }) {
           $("#shareBtn").on("click", function () {
             shareResults();
           });
+          function shareResultsCopy() {
+            console.log("Copy Button clicked!");
+            var name = $("#nameInput").val();
+            var email = $("#emailInput").val();
+            var html = \`
+            <p>Hi 101 Church,</p>
+            <p>Here are my Simple DISCovery results:</p>
+             <h2>My personality type is <strong>'${discResult.code}' (${
+    discResult.breakdown[0].type
+  }/${discResult.breakdown[1].type})</strong></h2>
+        <hr>
+        <p><strong>${discResult.description.replace(
+          /\b(we|are|you)\b/gi,
+          (match) => {
+            if (match.toLowerCase() === "we" || match.toLowerCase() === "you")
+              return "I";
+            if (match.toLowerCase() === "are") return "am";
+          }
+        )}</strong></p>
+        <br/>
+        <p><strong>Summary:</strong> ${discResult.summary.replace(
+          "We",
+          `'${discResult.code}'`
+        )}</p> ${
+    discResult.biblicalExamples && discResult.biblicalExamples.length > 0
+      ? `<p><strong>Biblical Examples:</strong> ${discResult.biblicalExamples}</p>`
+      : ""
+  }
+        <h2>My spiritual gifts:</h2>
+        ${giftsResult
+          .map(
+            (g) =>
+              `<h3>${g.gift}</h3><h4>Score: ${g.score}</h4><p>${g.description}</p>`
+          )
+          .join("<hr>")}
+          <p>Thank you,</p>
+          <p>\${name}</p>
+          <p>Email: \${email}</p>
+            \`
+            if (!name) {
+              alert("Please enter your name before sharing.");
+              return;
+            }
+            if (!email) {
+            alert("Please enter your email before sharing.");
+            return;
+            }
+            $.ajax({
+              type: "POST",
+              url: "https://one01church-growth-track-server.onrender.com/send",
+              contentType: "application/json",
+              data: JSON.stringify({
+                email: email,
+                html: html,
+              }),
+              cache: false,
+            }).done(function () {
+              alert("A copy of your results was sent to your email!")
+            });
+          }
+
+          $("#shareCopyBtn").on("click", function () {
+            shareResultsCopy();
+          });
         </script>
         <div class="row">
             <div class="col-md-3 well">
@@ -71,7 +139,9 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <label style="color:rgb(105, 104, 104);" for="email" required>Email</label>
                     <input class="form-control" id="emailInput" type="email" placeholder="Type your email">
                     <button class="btn btn-success btn-sm" id="shareBtn" type="button">
-                    <i class="fa fa-share" aria-hidden="true"></i> Share</button>
+                    <i class="fa fa-share" aria-hidden="true"></i>Share</button>
+                    <button class="btn btn-success btn-sm" id="shareCopyBtn" type="button">
+                    <i class="fa fa-share" aria-hidden="true"></i>Send Myself A Copy</button>
             </div>
         </div>
 
