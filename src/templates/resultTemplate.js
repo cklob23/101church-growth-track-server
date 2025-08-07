@@ -132,7 +132,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
           });
         </script>
         <div class="row">
-            <div class="col-md-3 well" style="width: 500px;">
+            <div class="col-md-3 well" style="width: 350px;">
                     <h4 class="text-muted">Share your results with<br>101 Church</h4>
                     <label style="color:rgb(105, 104, 104);" for="name" required>Name</label>
                     <input class="form-control" id="nameInput" type="name" placeholder="Type your name">
