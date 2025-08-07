@@ -71,8 +71,8 @@ export function buildResultHTML({ discResult, giftsResult }) {
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
             var html = \`
-            <p>Hi 101 Church,</p>
-            <p>Here are my Simple DISCovery results:</p>
+            <p>Hi,</p>
+            <p>Here are your Simple DISCovery results:</p>
              <h2>My personality type is <strong>'${discResult.code}' (${
     discResult.breakdown[0].type
   }/${discResult.breakdown[1].type})</strong></h2>
@@ -102,8 +102,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
           )
           .join("<hr>")}
           <p>Thank you,</p>
-          <p>\${name}</p>
-          <p>Email: \${email}</p>
+          <p>101 Church</p>
             \`
             if (!name) {
               alert("Please enter your name before sharing.");
@@ -140,6 +139,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
                     <input class="form-control" id="emailInput" type="email" placeholder="Type your email">
                     <button class="btn btn-success btn-sm" id="shareBtn" type="button">
                     <i class="fa fa-share" aria-hidden="true"></i>Share</button>
+                    <br/>
                     <button class="btn btn-success btn-sm" id="shareCopyBtn" type="button">
                     <i class="fa fa-share" aria-hidden="true"></i>Send Myself A Copy</button>
             </div>
