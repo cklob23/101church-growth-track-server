@@ -7,7 +7,7 @@ const DISC_TYPES = {
 
 export function scoreDISC(answers) {
   // Defensive guard: only use first 20 answers
-  const discAnswers = answers.slice(0, 21);
+  const discAnswers = answers.slice(0, 20);
 
   const traitScores = {
     D: 0,
