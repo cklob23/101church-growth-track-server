@@ -7,7 +7,7 @@ const DISC_TYPES = {
 
 export function scoreDISC(answers) {
   // Defensive guard: only use first 20 answers
-  const discAnswers = answers.slice(1, 20);
+  const discAnswers = answers.slice(0, 21);
 
   const traitScores = {
     D: 0,
@@ -17,13 +17,13 @@ export function scoreDISC(answers) {
   };
 
   // Index mapping: 0-4 = D, 5-9 = I, 10-14 = S, 15-19 = C
-  for (let i = 1; i < 21; i++) {
+  for (let i = 0; i < 21; i++) {
     const val = parseInt(discAnswers[i], 10);
     const score = isNaN(val) ? 0 : val;
 
-    if (i < 6) traitScores.D += score;
-    else if (i < 11) traitScores.I += score;
-    else if (i < 16) traitScores.S += score;
+    if (i < 5) traitScores.D += score;
+    else if (i < 10) traitScores.I += score;
+    else if (i < 15) traitScores.S += score;
     else traitScores.C += score;
   }
 
