@@ -17,7 +17,7 @@ export function scoreDISC(answers) {
   };
 
   // Index mapping: 0-4 = D, 5-9 = I, 10-14 = S, 15-19 = C
-  for (let i = 0; i < 21; i++) {
+  for (let i = 0; i < 20; i++) {
     const val = parseInt(discAnswers[i], 10);
     const score = isNaN(val) ? 0 : val;
 
