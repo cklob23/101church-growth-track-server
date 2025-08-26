@@ -25,3 +25,27 @@ export const giftQuestionMap = {
   W: "Tongues and Interpretation",
   X: "Wisdom",
 };
+
+// Major Ministy Groups
+export const ministryGroupsMap = {
+  0: "Guest Services",
+  1: "101 Kids",
+  2: "101 Students",
+  3: "Creative Arts & Worship",
+  4: "Mighty Warriors (Men's Ministry)",
+  5: "Ladies Ministry/Rooted/Grace Keepers",
+  6: "Security Team",
+  7: "Sports Ministry Outreach Team",
+  8: "Young Adults",
+  9: "Life Groups",
+  10: "Growth Track Team",
+  11: "Baptism Set Up Team",
+  12: "New Believers Class",
+  13: "Facilities/Campus Team",
+  14: "Information Technologies Team. (IT)",
+  15: "Weekly Events Distribution Team",
+  16: "Food Distribution Team",
+  17: "Prayer Team",
+  18: "Guest Follow Up Team",
+  19: "First Aid Team"
+};
