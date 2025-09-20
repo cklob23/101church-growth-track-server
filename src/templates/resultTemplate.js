@@ -102,6 +102,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               `<h3>${g.gift}</h3><h4>Score: ${g.score}</h4><p>${g.description}</p>`
           )
           .join("<hr>")}
+          <p><strong>Please see attached to this email the ministry groups and task(s) at 101 Church that align with your spiritual gifts.</strong></p>
           <p>Thank you,</p>
           <p>101 Church</p>
             \`

@@ -9,7 +9,7 @@ export async function buildExcelAttachment(gifts) {
 
     // 🔹 Step 1: Create Excel workbook
     const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet("Potential Jobs Based On Gifts");
+    const worksheet = workbook.addWorksheet("Potential Ministry Groups Based On Your Spriritual Gifts");
     worksheet.columns = [
         { header: "Spriritual Gift", key: "gift", width: 20 },
         { header: "Ministry Group", key: "group", width: 40 },

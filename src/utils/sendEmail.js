@@ -29,7 +29,7 @@ export async function sendEmail(email, htmlBody, attachment) {
     headers: { "x-cloudmta-class": "standard" },
     attachments: [
       {
-        filename: "Potential Jobs Based On Gifts.xlsx",
+        filename: "Potential Ministry Groups Based On Your Spriritual Gifts.xlsx",
         content: attachment, // attach directly from memory
       },
     ],
