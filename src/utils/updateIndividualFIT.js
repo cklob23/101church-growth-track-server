@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from "axios";
 
 /**
  * Updates an individual's spiritual gifts and abilities in CCB.
@@ -6,7 +6,7 @@ const axios = require('axios');
  * @param {Object} spiritualGifts - Key/value pairs of spiritual gifts.
  * @param {Object} abilities - Key/value pairs of abilities.
  */
-async function updateIndividualFIT(individualId, spiritualGifts, abilities) {
+export async function updateIndividualFIT(individualId, spiritualGifts, abilities) {
     try {
         const params = {
             srv: 'update_individual_fit',

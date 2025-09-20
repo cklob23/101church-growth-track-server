@@ -1,15 +1,14 @@
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
 import { scoreDISC } from "./utils/scoreDISC.js";
 import { scoreGifts } from "./utils/scoreGifts.js";
 import { buildResultHTML } from "./templates/resultTemplate.js";
 import { sendEmail } from "./utils/sendEmail.js";
-
-const router = express.Router();
+import { buildExcelAttachment } from "./utils/buildExcelAttachment.js";
 
 const app = express();
 const PORT = 4000;
+let giftsResult = [];
 
 app.use(
   cors({
@@ -17,7 +16,6 @@ app.use(
     methods: ["POST", "GET"],
   })
 );
-app.use(bodyParser.json());
 app.use(express.json());
 app.post("/results", (req, res) => {
   const { answers } = req.body;
@@ -27,7 +25,7 @@ app.post("/results", (req, res) => {
   }
 
   const discResult = scoreDISC(answers);
-  const giftsResult = scoreGifts(answers);
+  giftsResult = scoreGifts(answers);
   console.log(giftsResult);
   console.log(discResult);
   const html = buildResultHTML({ discResult, giftsResult });
@@ -42,7 +40,8 @@ app.post("/send", async (req, res) => {
   }
 
   try {
-    await sendEmail(email, html);
+    const attachment = await buildExcelAttachment(giftsResult.map(g => g.gift));
+    await sendEmail(email, html, attachment);
     res.json({ success: true });
   } catch (err) {
     console.error(err);

@@ -1,11 +1,11 @@
-const axios = require('axios');
+import axios from "axios";
 
 /**
  * Calls the CCB API with Basic Authentication.
  * @param {string} firstName - First name to search.
  * @param {string} lastName - Last name to search.
  */
-async function getIndividualId(firstName, lastName) {
+export async function getIndividualId(firstName, lastName) {
     try {
         const response = await axios.get('https://101church.ccbchurch.com/api.php', {
             params: {

@@ -5,9 +5,10 @@ import nodemailer from "nodemailer";
  *
  * @param {string} email - The recipient of the email.
  * @param {string} htmlBody - The HTML content of the email.
+ * @param {Buffer} attachment - The attachment content of the email.
  */
 
-export async function sendEmail(email, htmlBody) {
+export async function sendEmail(email, htmlBody, attachment) {
   const transporter = nodemailer.createTransport({
     host: "imap.gmail.com",
     port: 465,
@@ -26,6 +27,12 @@ export async function sendEmail(email, htmlBody) {
     subject: "My DISC & Gifts Assessment Results",
     html: htmlBody,
     headers: { "x-cloudmta-class": "standard" },
+    attachments: [
+      {
+        filename: "Potential Jobs Based On Gifts.xlsx",
+        content: attachment, // attach directly from memory
+      },
+    ],
   };
   try {
     const mailInfo = await transporter.sendMail(info, function (err, data) {
