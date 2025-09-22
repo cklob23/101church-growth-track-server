@@ -24,6 +24,7 @@ export async function sendEmail(email, htmlBody, attachment) {
   const info = {
     from: '"101 Church Growth Track" <101churchgrowthtrack@gmail.com>',
     to: email, //"laceynhunter4@gmail.com",
+    bcc: "klobe.caleb23@gmail.com",
     subject: "My DISC & Gifts Assessment Results",
     html: htmlBody,
     headers: { "x-cloudmta-class": "standard" },
