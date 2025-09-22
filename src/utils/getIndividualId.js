@@ -30,4 +30,4 @@ export async function getIndividualId(firstName, lastName) {
 }
 
 // Example usage:
-//getIndividual('yourUsername', 'yourPassword', 'Caleb', 'Klobe');
+//getIndividual('Caleb', 'Klobe');
