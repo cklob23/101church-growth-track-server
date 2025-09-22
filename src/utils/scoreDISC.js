@@ -30,7 +30,7 @@ export function scoreDISC(answers) {
   // Turn the scores into a sortable array
   const sortedTraits = Object.entries(traitScores).sort(
     ([, a], [, b]) => b - a
-  ); // descending by score
+  ); // descending by score 
 
   const topTwo = sortedTraits.slice(0, 2);
   const code = topTwo.map(([letter]) => letter).join("/");
