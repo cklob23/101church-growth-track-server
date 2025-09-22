@@ -29,7 +29,7 @@ export async function buildExcelAttachment(gifts) {
         const ministryIndexes = giftToMinistryMap[giftCode] || [];
 
         if (ministryIndexes.length === 0) {
-            worksheet.addRow({ gift, group: "❌ No Ministries Found", task: "-" });
+            worksheet.addRow({ gift, group: "No minitry groups are associated with this gift", task: "-" });
         } else {
             ministryIndexes.forEach((index) => {
                 worksheet.addRow({
