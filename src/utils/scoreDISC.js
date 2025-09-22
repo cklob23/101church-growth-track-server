@@ -24,7 +24,7 @@ export function scoreDISC(answers) {
     if (i < 5) traitScores.D += score;
     else if (i < 10) traitScores.I += score;
     else if (i < 15) traitScores.S += score;
-    else traitScores.C += score;
+    else if (i < 20) traitScores.C += score;
   }
 
   // Turn the scores into a sortable array
