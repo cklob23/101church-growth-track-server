@@ -58,7 +58,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               contentType: "application/json",
               data: JSON.stringify({
                 email: "laceynhunter4@gmail.com",
-                html: window.resultHtml,
+                html: html,
                 attachment: window.resultAttachment,
               }),
               cache: false,
@@ -126,7 +126,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               contentType: "application/json",
               data: JSON.stringify({
                 email: email,
-                html: window.resultHtml,
+                html: html,
                 attachment: window.resultAttachment,
               }),
               cache: false,
