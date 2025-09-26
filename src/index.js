@@ -35,7 +35,11 @@ app.post("/results", async (req, res) => {
       giftsResult.map((g) => g.gift)
     );
     const html = buildResultHTML({ discResult, giftsResult });
-
+    console.log(answers);
+    console.log(discResult);
+    console.log(giftsResult);
+    console.log(html);
+    console.log(attachmentBuffer);
     // Send HTML + Excel file encoded as base64
     res.send({
       html,
