@@ -6,10 +6,10 @@ import ExcelJS from "exceljs";
  * @param {string[]} gifts - array of spiritual gifts (e.g. ["Teaching", "Hospitality"])
  */
 export async function buildExcelAttachment(gifts) {
-
+    console.log("Gifts passed to build attachment: ", gifts);
     // 🔹 Step 1: Create Excel workbook
     const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet("Potential Ministry Groups Based On Your Spriritual Gifts");
+    const worksheet = workbook.addWorksheet("Potential Ministry Groups");
     worksheet.columns = [
         { header: "Spriritual Gift", key: "gift", width: 20 },
         { header: "Ministry Group", key: "group", width: 40 },

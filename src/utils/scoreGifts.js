@@ -1,4 +1,5 @@
 import { giftQuestionMap } from "./mappings.js";
+
 // Array of the gift codes in order (1st row = A, 2nd = B, etc.)
 const giftLetters = Object.keys(giftQuestionMap);
 
