@@ -6,7 +6,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
             console.log("Button clicked!");
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
-            var html = \`
+            var emailHtml = \`
             <p>Hi 101 Church,</p>
             <p>Here are my Simple DISCovery results:</p>
              <h2>My personality type is <strong>'${discResult.code}' (${
@@ -58,7 +58,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               contentType: "application/json",
               data: JSON.stringify({
                 email: "laceynhunter4@gmail.com",
-                html: html,
+                html: emailHtml,
                 attachment: window.resultAttachment,
               }),
               cache: false,
@@ -75,7 +75,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
             console.log("Copy Button clicked!");
             var name = $("#nameInput").val();
             var email = $("#emailInput").val();
-            var html = \`
+            var emailHtml = \`
             <p>Hi, \${name}</p>
             <p>Here are your Simple DISCovery results:</p>
              <h2>My personality type is <strong>'${discResult.code}' (${
@@ -126,7 +126,7 @@ export function buildResultHTML({ discResult, giftsResult }) {
               contentType: "application/json",
               data: JSON.stringify({
                 email: email,
-                html: html,
+                html: emailHtml,
                 attachment: window.resultAttachment,
               }),
               cache: false,
