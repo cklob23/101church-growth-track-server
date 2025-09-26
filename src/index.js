@@ -8,8 +8,6 @@ import { buildExcelAttachment } from "./utils/buildExcelAttachment.js";
 
 const app = express();
 const PORT = 4000;
-let giftsResult = [];
-let attachment = null;
 
 app.use(
   cors({
@@ -17,36 +15,38 @@ app.use(
     methods: ["POST", "GET"],
   })
 );
+
 app.use(express.json());
+
+// results endpoint
 app.post("/results", async (req, res) => {
   const { answers } = req.body;
 
-  if (!Array.isArray(answers) || answers.length !== 93) {
-    return res.status(400).send("Invalid answers array");
-  }
-
   const discResult = scoreDISC(answers);
-  giftsResult = scoreGifts(answers);
-  attachment = await buildExcelAttachment(giftsResult.map(g => g.gift));
-  console.log(answers);
-  console.log(discResult);
-  console.log(giftsResult);
+  const giftsResult = scoreGifts(answers);
+  const attachment = await buildExcelAttachment(giftsResult.map(g => g.gift));
   const html = buildResultHTML({ discResult, giftsResult });
-  res.send(html);
+
+  res.json({
+    html,
+    attachment: attachment.toString("base64"), // send as base64
+  });
 });
 
+// send endpoint
 app.post("/send", async (req, res) => {
-  const { email, html } = req.body;
+  const { email, html, attachment } = req.body;
 
-  if (!html) {
+  if (!email || !html || !attachment) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
+  const buffer = Buffer.from(attachment, "base64");
+
   try {
-    await sendEmail(email, html, attachment);
+    await sendEmail(email, html, buffer);
     res.json({ success: true });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: "Failed to send email" });
   }
 });
