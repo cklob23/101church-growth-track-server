@@ -18,7 +18,7 @@ app.use(
   })
 );
 app.use(express.json());
-app.post("/results", (req, res) => {
+app.post("/results", async (req, res) => {
   const { answers } = req.body;
 
   if (!Array.isArray(answers) || answers.length !== 93) {
