@@ -38,7 +38,6 @@ app.post("/results", async (req, res) => {
     console.log(answers);
     console.log(discResult);
     console.log(giftsResult);
-    console.log(html);
     // Send HTML + Excel file encoded as base64
     res.json({
       html,
